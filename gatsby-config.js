@@ -3,7 +3,7 @@ require(`dotenv`).config({
 });
 
 module.exports = {
-  pathPrefix: "/C_Major",
+  pathPrefix: "/cMajor",
   siteMetadata: {
     siteTitleAlt: `Minimal Blog - Gatsby Theme`,
   },
