@@ -8,18 +8,18 @@ var initialState = [0.2, 0.2, 0.2, -0.6, 1 / 100];
 var stateVector = [0, 0, 0, 0, 0];
 
 function Pendulum(props) {
+  //refs for 3D objects used in simulation
   const rod1 = useRef();
   const rod2 = useRef();
   const mass1 = useRef();
   const mass2 = useRef();
   const anchorPoint = useRef();
-
   const groupMesh = useRef();
+  // state variables
   const [hovered, setHover] = useState(false);
-  var [active, setActive] = useState(false);
-  //var [active2, setActive] = useState(false);
+  const [active, setActive] = useState(false);
 
-  //quaternion stuff
+  // setup quaternion stuff
 
   var quaternionTheta1 = new Quaternion();
   var quaternionTheta2 = new Quaternion();
@@ -27,6 +27,7 @@ function Pendulum(props) {
   var initialAngle2Quaternion = new Quaternion();
 
   useFrame(() => {
+    //runs once at the start to orient the pendulum angles correctly
     if (angleSetup == true) {
       initialAngle1Quaternion.setFromAxisAngle(
         new Vector3(0, 0, 1),
@@ -47,7 +48,8 @@ function Pendulum(props) {
       angleSetup = false;
     }
 
-    if (isMass1Active == false) {
+    //Pauses real time solver if state variable active is true
+    if (active == false) {
       stateVector = rk4(initialState);
     }
 
