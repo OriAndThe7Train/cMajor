@@ -5,6 +5,7 @@ import Pendulum from "./Pendulum";
 
 extend({ OrbitControls });
 // this component enables orbit controls in a r3f canvas
+
 const CameraControls = () => {
   const {
     camera,
@@ -13,7 +14,9 @@ const CameraControls = () => {
 
   const controls = useRef();
   useFrame((state) => controls.current.update());
-  return <orbitControls ref={controls} args={[camera, domElement]} />;
+  return (
+    <orbitControls ref={controls} args={[camera, domElement]} enabled={false} />
+  );
 };
 
 function App() {
@@ -27,7 +30,7 @@ function App() {
       <CameraControls />
       <ambientLight />
       <pointLight position={[10, 10, 10]} />
-      <Pendulum position={[0, 0, 0]} />
+      <Pendulum />
     </Canvas>
   );
 }

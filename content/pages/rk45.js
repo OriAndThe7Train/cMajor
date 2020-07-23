@@ -160,13 +160,7 @@ function rk4([theta1, theta1_1P, theta2, theta2_1P, dt]) {
         2 * alpha_2_order3 +
         alpha_2_order4);
 
-  return [
-    theta_1_result,
-    omega_1_result * 0.99999,
-    theta_2_result,
-    omega_2_result * 0.99999,
-    dt,
-  ];
+  return [theta_1_result, omega_1_result, theta_2_result, omega_2_result, dt];
 }
 
 export { eulersMethod, rk4 };
