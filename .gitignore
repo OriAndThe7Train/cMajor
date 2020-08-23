@@ -33,9 +33,14 @@ bower_components
 build/Release
 
 # Dependency directories
+<<<<<<< HEAD
 node_modules
 jspm_packages
 **/node_modules/**
+=======
+node_modules/
+jspm_packages/
+>>>>>>> Initial commit from gatsby: (https://github.com/niklasmtj/gatsby-starter-julia.git)
 
 # Typescript v1 declaration files
 typings/
@@ -52,6 +57,7 @@ typings/
 # Output of 'npm pack'
 *.tgz
 
+<<<<<<< HEAD
 # Yarn Integrity file
 .yarn-integrity
 
@@ -67,3 +73,21 @@ public
 .idea
 .vscode
 .DS_Store
+=======
+# dotenv environment variables file
+.env
+
+# gatsby files
+.cache/
+public
+
+# Mac files
+.DS_Store
+
+# Yarn
+yarn-error.log
+.pnp/
+.pnp.js
+# Yarn Integrity file
+.yarn-integrity
+>>>>>>> Initial commit from gatsby: (https://github.com/niklasmtj/gatsby-starter-julia.git)
