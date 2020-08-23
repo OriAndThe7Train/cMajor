@@ -15,8 +15,7 @@ import "./layout.css"
 
 const Content = styled.div`
   margin: 0 auto;
-  max-width: 860px;
-  padding: 0 1.0875rem 1rem;
+  padding: 0;
   padding-top: 0;
 `
 
@@ -40,15 +39,15 @@ const Layout = ({ children }) => (
         }
       }
     `}
-    render={data => (
+    render={(data) => (
       <>
         <Header siteTitle={data.site.siteMetadata.title} />
         <Content>
           <main>{children}</main>
           <Footer>
             <p>
-            © {new Date().getFullYear()}, Built with
-            {` `}
+              © {new Date().getFullYear()}, Built with
+              {` `}
             </p>
             <GatsbyLink href="https://www.gatsbyjs.org">Gatsby</GatsbyLink>
           </Footer>

@@ -26,6 +26,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^5.2.1",
+    "react-three-fiber": "^4.2.20",
+    "react-use-gesture": "^7.0.15",
     "typeface-nunito": "1.1.3"
   },
   "devDependencies": {
