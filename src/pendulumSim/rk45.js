@@ -5,11 +5,11 @@ const mc = 50 // mass of cart
 const g = 9.81 //gravity
 const L1 = 2 // length of pendulum 1
 const L2 = 2 // length of pendulum 2
-const c = 10 // rayleigh damping (friction) coeff
+const c = 80 // rayleigh damping (friction) coeff
 
 function rk4([theta1, theta1_1P, theta2, theta2_1P, x, v, force, dt]) {
   if (x > 10 || x < -10) {
-    v = -v
+    v = -0.95 * v
   }
   var theta_1_order1 = theta1
   var omega_1_order1 = theta1_1P

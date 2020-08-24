@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: "/cMajor",
   siteMetadata: {
     title: `fangzhou yu`,
     subtitle: `  `,
