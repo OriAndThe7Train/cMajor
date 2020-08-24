@@ -41,15 +41,6 @@
   Link: </cMajor/component---src-templates-blog-post-js-211fd301275fd857341d.js>; rel=preload; as=script
   Link: </cMajor/page-data/app-data.json>; rel=preload; as=fetch; crossorigin
   Link: </cMajor/page-data/blog/example-title/page-data.json>; rel=preload; as=fetch; crossorigin
-/cMajor/blog/second-title
-  Link: </cMajor/webpack-runtime-8e93699f4d091e7748f8.js>; rel=preload; as=script
-  Link: </cMajor/styles-89fd2ae28bdf06750a71.js>; rel=preload; as=script
-  Link: </cMajor/framework-8dcecaaefd71e2213eb2.js>; rel=preload; as=script
-  Link: </cMajor/app-b1ee27503d5aeca6ada5.js>; rel=preload; as=script
-  Link: </cMajor/commons-98c890de80444c6bcadb.js>; rel=preload; as=script
-  Link: </cMajor/component---src-templates-blog-post-js-211fd301275fd857341d.js>; rel=preload; as=script
-  Link: </cMajor/page-data/app-data.json>; rel=preload; as=fetch; crossorigin
-  Link: </cMajor/page-data/blog/second-title/page-data.json>; rel=preload; as=fetch; crossorigin
 /cMajor/blog/code-example
   Link: </cMajor/webpack-runtime-8e93699f4d091e7748f8.js>; rel=preload; as=script
   Link: </cMajor/styles-89fd2ae28bdf06750a71.js>; rel=preload; as=script
@@ -59,6 +50,15 @@
   Link: </cMajor/component---src-templates-blog-post-js-211fd301275fd857341d.js>; rel=preload; as=script
   Link: </cMajor/page-data/app-data.json>; rel=preload; as=fetch; crossorigin
   Link: </cMajor/page-data/blog/code-example/page-data.json>; rel=preload; as=fetch; crossorigin
+/cMajor/blog/second-title
+  Link: </cMajor/webpack-runtime-8e93699f4d091e7748f8.js>; rel=preload; as=script
+  Link: </cMajor/styles-89fd2ae28bdf06750a71.js>; rel=preload; as=script
+  Link: </cMajor/framework-8dcecaaefd71e2213eb2.js>; rel=preload; as=script
+  Link: </cMajor/app-b1ee27503d5aeca6ada5.js>; rel=preload; as=script
+  Link: </cMajor/commons-98c890de80444c6bcadb.js>; rel=preload; as=script
+  Link: </cMajor/component---src-templates-blog-post-js-211fd301275fd857341d.js>; rel=preload; as=script
+  Link: </cMajor/page-data/app-data.json>; rel=preload; as=fetch; crossorigin
+  Link: </cMajor/page-data/blog/second-title/page-data.json>; rel=preload; as=fetch; crossorigin
 /cMajor/404/
   Link: </cMajor/webpack-runtime-8e93699f4d091e7748f8.js>; rel=preload; as=script
   Link: </cMajor/styles-89fd2ae28bdf06750a71.js>; rel=preload; as=script
