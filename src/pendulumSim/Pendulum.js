@@ -4,10 +4,11 @@ import { useFrame, useThree } from "react-three-fiber"
 import { eulersMethod, rk4 } from "./rk45"
 import { useDrag } from "react-use-gesture"
 import PendulumCart from "./PendulumCart"
-var angleSetup = true
+let angleSetup = true
 var force = 0
-var initialState = [3.12, 0, 0, 0, 0, 0, force, 1 / 100]
+var initialState = [0.5, 0, 0.3, 0, 0, 0, force, 1 / 100]
 const firstAngle = initialState[0]
+let angleDiff = initialState[2] - initialState[0]
 var stateVector = [0, 0, 0, 0, 0, 0, force, 1 / 100]
 function Pendulum(props) {
   //refs for 3D objects used in simulation
@@ -87,26 +88,21 @@ function Pendulum(props) {
   )
 
   useFrame(() => {
-    //runs once at the start to orient the pendulum angles correctly
+    /*
     if (angleSetup === true) {
-      initialAngle1Quaternion.setFromAxisAngle(
-        new Vector3(0, 0, 1),
-        Math.PI + initialState[0]
-      )
-
       initialAngle2Quaternion.setFromAxisAngle(
         new Vector3(0, 0, 1),
+        //Math.PI + initialState[2] - initialState[0]
         initialState[2] - initialState[0]
+        //Math.PI
       )
 
-      groupMesh.current.applyQuaternion(initialAngle1Quaternion)
-      groupMesh.current.translateY(5)
-
-      rod2.current.translateY(-5)
-      rod2.current.applyQuaternion(initialAngle2Quaternion)
-      rod2.current.translateY(5)
+      //rod2.current.translateY(-5)
+      //rod2.current.applyQuaternion(initialAngle2Quaternion)
+      //console.log("meow")
+      //rod2.current.translateY(5)
       angleSetup = false
-    }
+    }*/
 
     //Pauses real time solver if state variable active is true
     if ((anchorPointActive || massOneActive || massTwoActive) === false) {
@@ -118,9 +114,11 @@ function Pendulum(props) {
       new Vector3(0, 0, 1),
       stateVector[0] - initialState[0]
     )
+
     quaternionTheta2.setFromAxisAngle(
       new Vector3(0, 0, 1),
       -(stateVector[0] - initialState[0]) + stateVector[2] - initialState[2]
+      //stateVector[2] - initialState[2]
     )
 
     reverseQuaternionTheta1.setFromAxisAngle(
@@ -137,24 +135,39 @@ function Pendulum(props) {
     groupMesh.current.applyQuaternion(quaternionTheta1)
     groupMesh.current.translateY(5)
 
-    rod2.current.translateY(-5)
+    //rod2.current.translateY(-5)
+    //rod2.current.applyQuaternion(quaternionTheta2)
+    //rod2.current.translateY(5)
+
+    //rod2.current.translateX(rod1.current.position.x - rod2.current.position.x)
+    //rod2.current.translateY(rod1.current.position.y - 5 - rod2.current.position.y)
+    rod2.current.position.x = rod1.current.position.x
+    //rod2.current.translateY(10)
+    rod2.current.position.y = rod1.current.position.y - 5
     rod2.current.applyQuaternion(quaternionTheta2)
-    rod2.current.translateY(5)
+
+    //rod2.current.translateY(-10)
 
     rod2.current.translateY(5)
     mass2.current.translateX(rod2.current.position.x - mass2.current.position.x)
     mass2.current.translateY(rod2.current.position.y - mass2.current.position.y)
     rod2.current.translateY(-5)
+    console.log(stateVector)
 
     initialState = stateVector
   })
 
   return (
-    <group ref={groupMesh} {...props} receiveShadow castShadow>
+    <group
+      ref={groupMesh}
+      {...props}
+      rotation={[0, 0, initialState[0]]}
+      receiveShadow
+      castShadow
+    >
       <mesh
-        position={[0, 0, 0]}
+        position={[0, -10, 0]}
         ref={rod1}
-        //onClick={(e) => setActive(!active)}
         onPointerOver={(e) => setHover(true)}
         onPointerOut={(e) => setHover(false)}
         receiveShadow
@@ -167,7 +180,8 @@ function Pendulum(props) {
         />
       </mesh>
       <mesh
-        position={[0, 10, 0]}
+        //position={[0, -20, 0]}
+        rotation={[0, 0, Math.PI + initialState[2] - initialState[0]]}
         ref={rod2}
         //onClick={(e) => setActive(!active)}
         onPointerOver={(e) => setHover(true)}
@@ -184,7 +198,7 @@ function Pendulum(props) {
       <mesh
         ref={mass1}
         {...bind1()}
-        position={[0, 5, 0]}
+        position={[0, -15, 0]}
         scale={massOneActive ? [1.5, 1.5, 1.5] : [1, 1, 1]}
         receiveShadow
         castShadow

@@ -18,6 +18,8 @@ path: "/blog/example-title"
 
 Paragraph
 
+the big blue fox jumps over the red rock
+
 ---
 
 > This is a quote
