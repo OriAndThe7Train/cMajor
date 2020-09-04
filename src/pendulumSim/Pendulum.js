@@ -4,13 +4,15 @@ import { useFrame, useThree } from "react-three-fiber"
 import { eulersMethod, rk4 } from "./rk45"
 import { useDrag } from "react-use-gesture"
 import PendulumCart from "./PendulumCart"
-let angleSetup = true
-var force = 0
-var initialState = [0.5, 0, 0.3, 0, 0, 0, force, 1 / 100]
-const firstAngle = initialState[0]
-let angleDiff = initialState[2] - initialState[0]
-var stateVector = [0, 0, 0, 0, 0, 0, force, 1 / 100]
+
 function Pendulum(props) {
+  let angleSetup = true
+  var force = 0
+  var initialState = [0.5, 0, 0.3, 0, 0, 0, force, 1 / 100]
+  const firstAngle = initialState[0]
+  let angleDiff = initialState[2] - initialState[0]
+  var stateVector = [0, 0, 0, 0, 0, 0, force, 1 / 100]
+
   //refs for 3D objects used in simulation
   const rod1 = useRef()
   const rod2 = useRef()
